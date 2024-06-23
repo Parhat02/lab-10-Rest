@@ -29,7 +29,7 @@ public class AddressController {
     */
 
     @GetMapping("/{addressNo}")
-    public ResponseEntity<ResponseWrapper> getAddressByNo(@PathVariable("addressNo") String addressNo){
+    public ResponseEntity<ResponseWrapper> getAddressByNo(@PathVariable("addressNo") String addressNo) {
         //I need to find address info based on addressNo  --> AddressDTO
         AddressDTO foundAddress = addressService.findByAddressNo(addressNo);
 
@@ -49,6 +49,8 @@ public class AddressController {
 //                .message("Address " + addressNo + " is successfully retrieved.")
 //                .code(HttpStatus.OK.value())
 //                .data(addressService.findByAddressNo(addressNo)).build());
+    }
+
 
 //    @GetMapping("{addressNo}")
 //    public ResponseEntity<ResponseWrapper> getAddress(@PathVariable("addressNo") String addressNo){
@@ -57,7 +59,8 @@ public class AddressController {
 //                .header("Version", "Cydeo.V1")
 //                .header("Operation", "Get Address")
 //                .body(new ResponseWrapper("Address successfully retrieved!", addressService.findByAddressNo(addressNo)));
-    }
+//                }
+
 
 
     /*

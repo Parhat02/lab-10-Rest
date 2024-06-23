@@ -35,7 +35,9 @@ public class ParentController {
      @GetMapping()
      public ResponseEntity<ResponseWrapper> getParents() {
 
-         return ResponseEntity.ok(ResponseWrapper.builder()
+         return ResponseEntity.status(HttpStatus.ACCEPTED)
+                 .header("Parents", "Returned")
+                 .body(ResponseWrapper.builder()
                  .success(true)
                  .message("Parents are successfully retrieved.")
                  .code(HttpStatus.OK.value())

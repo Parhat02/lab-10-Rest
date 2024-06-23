@@ -69,19 +69,26 @@ public class AddressController {
       JSON Response Body:
       <updated address data>
      */
-    @PutMapping("{addressNo}")
-    public ResponseEntity<ResponseWrapper> updateAddress(@PathVariable("addressNo") String addressNo, @RequestBody AddressDTO addressDTO){
-//        return ResponseEntity
-//                .status(HttpStatus.CREATED)
-//                .header("Version", "Cydeo.V1")
-//                .header("Operation", "Create Address")
-//                .body(new ResponseWrapper("Course successfully Created!", addressService.update(addressNo, addressDTO)));
+//    @PutMapping("{addressNo}")
+//    public ResponseEntity<ResponseWrapper> updateAddress(@PathVariable("addressNo") String addressNo, @RequestBody AddressDTO addressDTO){
+////        return ResponseEntity
+////                .status(HttpStatus.CREATED)
+////                .header("Version", "Cydeo.V1")
+////                .header("Operation", "Create Address")
+////                .body(new ResponseWrapper("Course successfully Created!", addressService.update(addressNo, addressDTO)));
+//
+//            return ResponseEntity.ok(ResponseWrapper.builder()
+//                .success(true)
+//                .message("Address " + addressNo + " is successfully updated.")
+//                .code(HttpStatus.CREATED.value())
+//                .data(addressService.update(addressNo, addressDTO)).build());
+//
+//    }
 
-            return ResponseEntity.ok(ResponseWrapper.builder()
-                .success(true)
-                .message("Address " + addressNo + " is successfully updated.")
-                .code(HttpStatus.CREATED.value())
-                .data(addressService.update(addressNo, addressDTO)).build());
-
+    @PutMapping("/{addressNo}")
+    public AddressDTO updateAddress(@PathVariable("addressNo") String addressNo,
+                                    @RequestBody AddressDTO addressDTO){
+        //using the service to update the address
+        return addressService.update(addressNo,addressDTO);
     }
 }

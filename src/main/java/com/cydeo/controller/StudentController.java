@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/student")
 public class StudentController {
@@ -27,6 +29,25 @@ public class StudentController {
           "code":200
           "data":<students data>
     */
+
+//    @GetMapping
+//    public ResponseEntity<ResponseWrapper> readAllStudents(){
+//        //get all the students
+//        List<StudentDTO> students = studentService.findAll();
+//        //create response wrapper
+//        ResponseWrapper responseWrapper = ResponseWrapper.builder()
+//                .success(true).code(HttpStatus.OK.value())
+//                .message("Students are successfully retrieved.")
+//                .data(students).build();
+//        //return them with status code:200
+//        return ResponseEntity.ok(responseWrapper);
+//
+//        //one statement
+////        return ResponseEntity.ok(ResponseWrapper.builder()
+////                .success(true).code(HttpStatus.OK.value())
+////                .message("Students are successfully retrieved.")
+////                .data(studentService.findAll()).build());
+//    }
      @GetMapping
      public ResponseEntity<ResponseWrapper> getStudents() {
 
@@ -58,4 +79,19 @@ public class StudentController {
                         .data(studentService.createStudent(studentDTO)).build());
     }
 
+//    @PostMapping
+//    public ResponseEntity<ResponseWrapper> createStudent(@RequestBody StudentDTO studentDTO){
+//        //create the student
+//        StudentDTO createdStudent = studentService.createStudent(studentDTO);
+//
+//        //response wrapper
+//        ResponseWrapper responseWrapper = ResponseWrapper.builder()
+//                .success(true).code(HttpStatus.CREATED.value())
+//                .message("Student is successfully created.")
+//                .data(createdStudent).build();
+//
+//        //return json with 201
+//        return ResponseEntity.status(HttpStatus.CREATED)
+//                .body(responseWrapper);
+//    }
 }

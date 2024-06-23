@@ -27,7 +27,7 @@ public class StudentController {
           "code":200
           "data":<students data>
     */
-     @GetMapping()
+     @GetMapping
      public ResponseEntity<ResponseWrapper> getStudents() {
 
          return ResponseEntity.status(HttpStatus.OK)
